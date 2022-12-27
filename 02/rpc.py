@@ -4,14 +4,15 @@ import glob
 class RockPaperScissors:
     score: int = 0
     strategy_guide: list[list[str]] = []
+
     loser_guide = {
-        'X': 'C',  # Pierre / Feuille
-        'Y': 'B',  # Feuille / Ciseaux
+        'X': 'B',  # Pierre / Feuille
+        'Y': 'C',  # Feuille / Ciseaux
         'Z': 'A',  # Ciseaux / Pierre
     }
     winner_guide = {
-        'X': 'A',  # Pierre / Ciseaux
-        'Y': 'C',  # Feuille / Pierre
+        'X': 'C',  # Pierre / Ciseaux
+        'Y': 'A',  # Feuille / Pierre
         'Z': 'B',  # Ciseaux / Feuille
     }
     shape_score_guide = {
@@ -56,11 +57,8 @@ class RockPaperScissors:
 
         else:
             round_score = self.round_score_guide['DRAW']
-        print(
-            f'Round score: {round_score}, {self.shape_score_guide[player_move]}, player: {player_move} vs elf: {elf_move}')
         round_score += self.shape_score_guide[player_move]
         self.score += round_score
-        print(f'Round score: {round_score}, total score: {self.score}')
 
     def playMultipleRounds(self):
         for step in self.strategy_guide:
